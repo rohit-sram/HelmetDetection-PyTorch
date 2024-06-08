@@ -3,12 +3,17 @@ import torch
 from datetime import datetime
 
 TIMESTAMP: str = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
+# MAC_OS_EXT = os.path.join("__MACOSX", "data")
+MAC_OS_EXT = os.path.join("data")
 
 # Data Ingestion Constants
-ARTIFACTS_DIR = os.path.join("artifacts", TIMESTAMP)
+# ARTIFACTS_DIR = os.path.join("artifacts", TIMESTAMP)
+ARTIFACTS_DIR = os.path.join("artifacts")
 BUCKET_NAME = 'helmet-det'
 ZIP_FILE_NAME = 'data.zip'
-ANNOTATIONS_COCO_JSON_FILE = '_annotations.coco.json'
+# ANNOTATIONS_COCO_JSON_FILE_MACOS = ".__annotations.coco.json"
+ANNOTATIONS_COCO_JSON_FILE = "_annotations.coco.json"
+
 
 INPUT_SIZE = 416
 HORIZONTAL_FLIP = 0.3
@@ -25,6 +30,14 @@ DATA_INGESTION_TRAIN_DIR = 'train'
 DATA_INGESTION_TEST_DIR = 'test'
 DATA_INGESTION_VALID_DIR = 'valid'
 
+# Data Transformation constants
+DATA_TRANSFORMATION_ARTIFACTS_DIR = "DataTransformationArtifacts"
+DATA_TRANSFORMATION_TRAIN_DIR = "Train"
+DATA_TRANSFORMATION_TEST_DIR = "Test"
+DATA_TRANSFORMATION_TRAIN_FILE_NAME = "train.pkl"
+DATA_TRANSFORMATION_TEST_FILE_NAME = "test.pkl"
+DATA_TRANSFORMATION_TRAIN_SPLIT = "train"
+DATA_TRANSFORMATION_TEST_SPLIT = "test"
 
 # AWS CONSTANTS
 AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID"

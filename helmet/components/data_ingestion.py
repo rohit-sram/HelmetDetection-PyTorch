@@ -25,6 +25,11 @@ class DataIngestion():
                 self.data_ingestion_config.BUCKET_NAME,
                 self.data_ingestion_config.ZIP_FILE_PATH
             )
+            # print(
+            #     self.data_ingestion_config.ZIP_FILE_NAME, "\n",
+            #     self.data_ingestion_config.BUCKET_NAME, "\n",
+            #     self.data_ingestion_config.ZIP_FILE_PATH
+            # )
             
             logging.info("Completed Data collection.")
         
