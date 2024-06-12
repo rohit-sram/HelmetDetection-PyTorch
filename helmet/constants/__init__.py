@@ -7,13 +7,12 @@ TIMESTAMP: str = datetime.now().strftime("%m_%d_%Y_%H_%M_%S")
 MAC_OS_EXT = os.path.join("data")
 
 # Data Ingestion Constants
-# ARTIFACTS_DIR = os.path.join("artifacts", TIMESTAMP)
 ARTIFACTS_DIR = os.path.join("artifacts")
+# ARTIFACTS_DIR = os.path.join("artifacts", TIMESTAMP)
 BUCKET_NAME = 'helmet-det'
 ZIP_FILE_NAME = 'data.zip'
-# ANNOTATIONS_COCO_JSON_FILE_MACOS = ".__annotations.coco.json"
 ANNOTATIONS_COCO_JSON_FILE = "_annotations.coco.json"
-
+# ANNOTATIONS_COCO_JSON_FILE_MACOS = ".__annotations.coco.json"
 
 INPUT_SIZE = 416
 HORIZONTAL_FLIP = 0.3
@@ -38,6 +37,19 @@ DATA_TRANSFORMATION_TRAIN_FILE_NAME = "train.pkl"
 DATA_TRANSFORMATION_TEST_FILE_NAME = "test.pkl"
 DATA_TRANSFORMATION_TRAIN_SPLIT = "train"
 DATA_TRANSFORMATION_TEST_SPLIT = "test"
+
+# Model Training Constants 
+TRAINED_MODEL_DIR = 'TrainedModel'
+TRAINED_MODEL_NAME = 'model.pt'
+TRAINED_BATCH_SIZE = 2
+TRAINED_SHUFFLE = False
+TRAINED_NUM_WORKERS = 1
+EPOCH = 1
+# EPOCH = 10
+
+has_gpu = torch.cuda.is_available()
+has_mps = torch.backends.mps.is_built()
+DEVICE = "mps" if has_mps else "cuda" if torch.cuda.is_available() else "cpu"
 
 # AWS CONSTANTS
 AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID"
